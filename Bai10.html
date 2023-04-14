@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chương trình tính giá điện</h1>
+    <p>Giá bán điện sinh hoạt được tính theo 6 bậc như sau: </p>
+    <p>Bậc 1 (0 đến 50kWh): 1.678 đồng/kWh</p>
+    <p>Bậc 2 (51 đến 100kWh): 1.734 đồng/kWh</p>
+    <p>Bậc 3 (101 đến 200 kWh): 2.014 đồng/kWh</p>
+    <p>Bậc 4 (201 đến 300 kWh): 2.536 đồng/kWh</p>
+    <p>Bậc 5 (301 đến 400 kWh): 2.834 đồng/kWh</p>
+    <p>Bậc 6 (401 kWh trở lên): 2.927 đồng/kWh</p> 
+    <br>
+    <label><h3>Nhập số kWh: </h3></label>
+    <input type="text" id="kWh" value="0">
+    <label><button type="number" id="kwh" onclick="GiaDien()" > Tính </button></label>
+    <h3 id="Result"></h3>
+    <script>
+        function GiaDien(){
+            let kwh = parseInt(document.getElementById('kWh').value);
+            let gia;
+            if (kwh > 400){
+                gia = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + 100 * 2834 + (kwh - 400) * 2927;
+            } else if (kwh > 300){
+                gia = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + (kwh - 300) * 2834;
+            } else if (kwh > 200){
+                gia = 50 * 1678 + 50 * 1734 + 100 * 2014 + (kwh - 200) * 2536;
+            } else if (kwh > 100){
+                gia = 50 * 1678 + 50 * 1734 + (kwh - 100) * 2014;
+            } else if (kwh > 50){
+                gia = 50 * 1678 + (kwh - 50) * 1734;
+            } else{
+                gia = kwh * 1678;
+            }
+            document.getElementById('Result').innerHTML = ('Giá điện là: ' + gia + ' VND');
+        }
+    </script>
+</body>
+</html>

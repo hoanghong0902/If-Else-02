@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chương trình tính thuế cá nhân</h1>
+    <p>Thuế thu nhập cá nhân được tính theo 7 bậc như sau: </p>
+    <p>Bậc 1 (0 đến 5 triệu đồng): 5%</p>
+    <p>Bậc 2 (5 đến 10 triệu đồng): 10% Thu nhập tính thuế - 0.25 triệu đồng</p>
+    <p>Bậc 3 (10 đến 18 triệu đồng): 15% Thu nhập tính thuế - 0.75 triệu đồng</p>
+    <p>Bậc 4 (18 đến 32 triệu đồng): 20% Thu nhập tính thuế - 1.65 triệu đồng</p>
+    <p>Bậc 5 (32 đến 52 triệu đồng): 25% Thu nhập tính thuế - 3.25 triệu đồng</p>
+    <p>Bậc 6 (52 đến 80 triệu đồng): 30% Thu nhập tính thuế - 5.85 triệu đồng</p> 
+    <p>Bậc 7 (trên 80 triệu đồng): 35% Thu nhập tính thuế - 9.85 triệu đồng</p>
+    <br>    
+    <label><h3>Nhập số tiền thu nhập tính thuế (triệu đồng):</h3></label>
+    <input type="text" id="TNTT" value="0">
+    <label><button type="number" name="tinh" onclick="TinhThue()" > Tính </button></label>
+    <h3 id="Result"></h3>
+    <script>
+        function TinhThue(){
+            let tntt = parseInt(document.getElementById('TNTT').value);
+            let thue;
+            if (tntt > 80){
+                thue = 35 / 100 * tntt - 9.85;
+            } else if (tntt > 52){
+                thue = 30 / 100 * tntt - 5.85;
+            } else if (tntt > 32){
+                thue = 25 / 100 * tntt - 3.25;
+            } else if (tntt > 18){
+                thue = 20 / 100 * tntt - 1.65;
+            } else if (tntt > 10){
+                thue = 15 / 100 * tntt - 0.75;
+            } else if (tntt > 5){
+                thue = 10 / 100 * tntt - 0.25;
+            } else{
+                thue = 5 / 100 * tntt;
+            }
+            document.getElementById('Result').innerHTML = ('Thuế thu nhập cá nhân của bạn là: ' + thue + ' triệu đồng');
+        }
+    </script>
+</body>
+</html>

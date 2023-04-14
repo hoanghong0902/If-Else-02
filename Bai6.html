@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Giải phương trình bậc 1: ax + b = 0</h1>
+    <p>Nhập a = </p>
+    <input type="number" id ="a" value =" " >
+    <p>Nhập b =</p>
+    <input type="number" id ="b" value =" " >
+    <input type="button" id ="check" onclick ="Check()" value=" Tính ">
+    <h3 id="Result"></h3>
+    <script>
+        function Check(){
+            let a = document.getElementById('a').value;
+            let b = document.getElementById('b').value;
+            let x;
+            if (a == 0){
+                x = 'x không tồn tại';
+            } else {
+                x = -b / a;
+            }
+            document.getElementById('Result').innerHTML = ('Kết quả x = ' + x);
+        }
+    </script>
+</body>
+</html>

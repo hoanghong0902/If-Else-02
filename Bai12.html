@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chương trình tính lãi ngân hàng</h1>
+    <label>Nhập số tiền gửi ban đầu: </label>
+    <input type="text" id="TienBD" value=" "> <br> <br>
+    <label>Nhập số tháng cho vay: </label>
+    <input type="text" id="Thang" value=" "> <br> <br>
+    <label>Nhập lãi suất hàng tháng (%): </label>
+    <input type="text" id="LaiThang" value=" ">
+    <button type="button" name="tinhLai" onclick="TinhLai()">Tính</button>
+    <p id="Result"></p>
+    <script>
+        function TinhLai(){
+            let tienBD = parseInt(document.getElementById('TienBD').value);
+            let thang = parseInt(document.getElementById('Thang').value);
+            let laiThang = parseInt(document.getElementById('LaiThang').value);
+            let lai = tienBD * thang * laiThang;
+            document.getElementById('Result').innerHTML = ('Tiền lãi suất ngân hàng của bạn là: ' + lai);
+        }
+    </script>
+</body>
+</html>
